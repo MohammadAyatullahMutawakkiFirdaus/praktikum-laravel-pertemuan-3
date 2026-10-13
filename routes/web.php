@@ -2,10 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\suratmasukcontroller;
-Route::get('/', function () {
-    return view('welcome');
-});
 
+//Route::get('/', function () {
+//   return view('welcome');
+//});
 
 // //ROUTER DASAR
 // route :: get('/surat-masuk', function () {
@@ -14,7 +14,7 @@ Route::get('/', function () {
 
 // //ROUTER DASAR DENGAN PARAMETER
 // route :: get('/surat-masuk/{id}', function ($id) {
-//     return 'detail surat masuk dengan id:' .$id;
+//     return 'surat masuk dengan id:' .$id;
 // })->name('surat-masuk.show');
 
 

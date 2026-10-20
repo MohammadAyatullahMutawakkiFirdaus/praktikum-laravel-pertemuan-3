@@ -2,10 +2,11 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\suratmasukcontroller;
+use App\Http\Controllers\suratkeluarcontroller;
 
-//Route::get('/', function () {
-//   return view('welcome');
-//});
+Route::get('/', function () {
+return view('dashboar');
+})->name('dashboar');
 
 // //ROUTER DASAR
 // route :: get('/surat-masuk', function () {
@@ -23,3 +24,9 @@ Route::get('/surat-masuk', [suratmasukcontroller::class, 'index'])->name('surat-
 
 
 Route::get('/surat-masuk/{id}', [suratmasukcontroller::class, 'show'])->name('surat-masuk.show');
+
+Route::get('/surat-keluar', [suratkeluarcontroller::class, 'index'])
+    ->name('surat-keluar.index');
+
+Route::get('/surat-keluar/{id}', [suratkeluarcontroller::class, 'show'])
+    ->name('surat-keluar.show');

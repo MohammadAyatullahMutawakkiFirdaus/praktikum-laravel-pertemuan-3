@@ -1,11 +1,12 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>surat masuk</title>
-        <head>
-            <body>
+@extends('layouts.app')
+
+@section('title', 'Detail Surat Masuk')
+
+@section('content')
+        <h1>Dashboard</h1>
+        <p>
+            Selamat Datang di sistem informasi surat
+        </p>
                 <h1>halaman detail surat masuk</h1>
 @if($surat)
     
@@ -35,3 +36,4 @@
 
             </body>
         </head>
+@endsection

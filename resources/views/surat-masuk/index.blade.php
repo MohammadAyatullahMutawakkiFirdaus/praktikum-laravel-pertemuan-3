@@ -1,9 +1,14 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Surat Masuk</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Surat Masuk')
+
+@section('content')
+
+        <h1>Dashboard</h1>
+        <p>
+            Selamat Datang di sistem informasi surat
+        </p>
+
 
     <h1>Surat Masuk</h1>
     {{-- <p>ID Surat: {{ $id }}</p> --}}
@@ -33,5 +38,5 @@
              @endforeach
         </tbody>
     </table>
-</body>
-</html>
+
+@endsection

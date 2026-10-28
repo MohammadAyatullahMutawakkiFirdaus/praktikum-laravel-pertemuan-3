@@ -4,38 +4,14 @@
 
 @section('content')
 
-    <h1>Halaman Detail Surat Keluar</h1>
+    <h1>Detail Surat Keluar</h1>
 
-    @if($surat)
+    <p><strong>Nomor Surat:</strong> {{ $surat->nomor_surat }}</p>
+    <p><strong>Tanggal:</strong> {{ $surat->tanggal }}</p>
+    <p><strong>Tujuan:</strong> {{ $surat->tujuan }}</p>
+    <p><strong>Perihal:</strong> {{ $surat->perihal }}</p>
+    <p><strong>Keterangan:</strong> {{ $surat->keterangan ?? '-' }}</p>
 
-        <p>
-            <strong>Nomor Surat:</strong>
-            {{ $surat['nomor_surat'] }}
-        </p>
-
-        <p>
-            <strong>Tanggal:</strong>
-            {{ $surat['tanggal'] }}
-        </p>
-
-        <p>
-            <strong>Tujuan:</strong>
-            {{ $surat['tujuan'] }}
-        </p>
-
-        <p>
-            <strong>Perihal:</strong>
-            {{ $surat['perihal'] }}
-        </p>
-
-    @else
-
-        <p>Surat tidak ditemukan</p>
-
-    @endif
-
-    <a href="{{ url('/surat-keluar') }}">
-        Kembali
-    </a>
+    <a href="{{ route('surat-keluar.index') }}">Kembali ke daftar</a>
 
 @endsection

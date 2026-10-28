@@ -3,37 +3,15 @@
 @section('title', 'Detail Surat Masuk')
 
 @section('content')
-        <h1>Dashboard</h1>
-        <p>
-            Selamat Datang di sistem informasi surat
-        </p>
-                <h1>halaman detail surat masuk</h1>
-@if($surat)
-    
-                <p>
-                    <strong>nomor surat</strong>
-                    {{$surat['nomor_surat']}}
-                </p>
 
-                                <p>
-                    <strong>tanggal</strong>
-                    {{$surat['tanggal']}}
-                </p>
+    <h1>Detail Surat Masuk</h1>
 
-                                <p>
-                    <strong>pengirim</strong>
-                    {{$surat['pengirim']}}
-                </p>
+    <p><strong>Nomor:</strong> {{ $surat->nomor_surat }}</p>
+    <p><strong>Tanggal:</strong> {{ $surat->tanggal }}</p>
+    <p><strong>Pengirim:</strong> {{ $surat->pengirim }}</p>
+    <p><strong>Perihal:</strong> {{ $surat->perihal }}</p>
+    <p><strong>Keterangan:</strong> {{ $surat->keterangan ?? '-' }}</p>
 
-                                <p>
-                    <strong>perihal</strong>
-                    {{$surat['perihal']}}
-                </p>
-@else
-<p>surat tidak ditemukan</p>
-@endif
-                <a href="{{route('surat-masuk.index')}}">kembali</a>
+    <a href="{{ route('surat-masuk.index') }}">Kembali ke daftar</a>
 
-            </body>
-        </head>
 @endsection

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <meta charset= "UTF-8">
+        <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>@yield('title')</title>
     </head>
@@ -9,19 +9,26 @@
         <header>
             <h2>sistem informasi surat</h2>
             <nav>
-                <a href="{{ route ('dashboar')}}">Dashboard</a>
-                <a href="{{ route('surat-masuk.index')}}">surat masuk</a>
+                <a href="{{ route('dashboard') }}">Dashboard</a>
+                <a href="{{ route('surat-masuk.index') }}">surat masuk</a>
                 <a href="{{ route('surat-keluar.index') }}">Surat Keluar</a>
+
+                @auth
+                    <span>Masuk sebagai: {{ auth()->user()->name }}</span>
+                    <form method="POST" action="{{ route('logout') }}" style="display:inline">
+                        @csrf
+                        <button type="submit">Keluar</button>
+                    </form>
+                @endauth
             </nav>
         </header>
 
         <main>
-        @yield('content')
+            @yield('content')
         </main>
 
-            <footer>
-                <p> surat informasi surat</p>
-            </footer>
-
-        </body>
-    </html>
+        <footer>
+            <p>surat informasi surat</p>
+        </footer>
+    </body>
+</html>

@@ -6,6 +6,10 @@
 
     <h1>Daftar Surat Masuk</h1>
 
+    @can('manage-letters')
+        <p><a href="{{ route('surat-masuk.create') }}">+ Tambah Surat</a></p>
+    @endcan
+
     <table border="1" cellpadding="10">
         <thead>
             <tr>
@@ -28,6 +32,15 @@
                     <td>{{ $surat->perihal }}</td>
                     <td>
                         <a href="{{ route('surat-masuk.show', $surat->id) }}">Detail</a>
+
+                        @can('manage-letters')
+                            <a href="{{ route('surat-masuk.edit', $surat->id) }}">Edit</a>
+                            <form method="POST" action="{{ route('surat-masuk.destroy', $surat->id) }}" style="display:inline">
+                                @csrf
+                                @method('DELETE')
+                                <button type="submit">Hapus</button>
+                            </form>
+                        @endcan
                     </td>
                 </tr>
             @empty

@@ -14,25 +14,25 @@ Route::middleware('auth')->group(function () {
     Route::get('/', fn () => view('dashboard'))->name('dashboard');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 
-    // Surat Masuk
-    Route::resource('surat-masuk', suratmasukcontroller::class)
-        ->only(['index', 'show'])
-        ->parameters(['surat-masuk' => 'id']);
-
+    // Surat Masuk (yang ada create harus DI ATAS show)
     Route::resource('surat-masuk', suratmasukcontroller::class)
         ->except(['index', 'show'])
         ->parameters(['surat-masuk' => 'id'])
         ->middleware('can:manage-letters');
 
-    // Surat Keluar (latihan mandiri, pola sama)
-    Route::resource('surat-keluar', suratkeluarcontroller::class)
+    Route::resource('surat-masuk', suratmasukcontroller::class)
         ->only(['index', 'show'])
-        ->parameters(['surat-keluar' => 'id']);
+        ->parameters(['surat-masuk' => 'id']);
 
+    // Surat Keluar (urutan sama)
     Route::resource('surat-keluar', suratkeluarcontroller::class)
         ->except(['index', 'show'])
         ->parameters(['surat-keluar' => 'id'])
         ->middleware('can:manage-letters');
+
+    Route::resource('surat-keluar', suratkeluarcontroller::class)
+        ->only(['index', 'show'])
+        ->parameters(['surat-keluar' => 'id']);
 });
 
 // //ROUTER DASAR

@@ -10,6 +10,10 @@
         <p><a href="{{ route('surat-masuk.create') }}">+ Tambah Surat</a></p>
     @endcan
 
+    @if (session('success'))
+        <p style="color:green">{{ session('success') }}</p>
+    @endif
+
     <table border="1" cellpadding="10">
         <thead>
             <tr>
@@ -38,7 +42,7 @@
                             <form method="POST" action="{{ route('surat-masuk.destroy', $surat->id) }}" style="display:inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit">Hapus</button>
+                                <button type="submit" onclick="return confirm('Hapus surat ini?')">Hapus</button>
                             </form>
                         @endcan
                     </td>
